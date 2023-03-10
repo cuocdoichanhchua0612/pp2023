@@ -8,7 +8,7 @@ mrks = []
 def student_information():
     number_student = int(input("input number of students in a class: "))
     for i in range(number_student):
-        student_name = input("Enter a name: ")
+        student_name = input("Enter a name: ")  
         student_ID = input("Enter a ID: ")
         student_DoB = input("Enter a DoB: ")
         students["student_ID"] = student_ID
