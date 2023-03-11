@@ -5,10 +5,11 @@ marks = {}
 std = []
 crs = []
 mrks = []
+
 def student_information():
     number_student = int(input("input number of students in a class: "))
     for i in range(number_student):
-        student_name = input("Enter a name: ")  
+        student_name = input("Enter a name: ")
         student_ID = input("Enter a ID: ")
         student_DoB = input("Enter a DoB: ")
         students["student_ID"] = student_ID
@@ -36,14 +37,16 @@ def print_course(x):
         print(x[i])
 
 def student_mark(std: list, crs: list, number_student: int):
-    for coures in crs:
-        print(coures)
         select = int(input("select course:"))
-        for i in range(number_student):
-            std[i].append(int(input("Student marks" + str(i+1))))
-            dict_copy = dict(marks)
-            mrks.append(dict_copy)
-            return mrks
+        for c in range(len(crs)):
+            if crs[c]['course_ID'] == select :
+
+                for s in range(number_student):
+                    row = len(crs)
+                    clm = len(std)
+                    z=input("Student marks" + ' ' + str(s+1))
+                    mark_2D_list = [[z for c in row] for s in range(clm)]
+                    print(mark_2D_list)
 
 def print_mark(std: list, crs: list):
     for coures in crs:
@@ -52,13 +55,13 @@ def print_mark(std: list, crs: list):
         for i in range(len(std)):
             print("student_ID", std[i][0], "student_name: ", std[i][1], 
             "Mark: ", std[i][select + 2])
-          
+
 def main():
     student_information()
     print_student(std)
     course_information()
     print_course(crs)
-    student_mark()
-    print_mark(mrks)
+    student_mark(std, crs, len(std))
+    print_mark(std, crs)
 
 main()
